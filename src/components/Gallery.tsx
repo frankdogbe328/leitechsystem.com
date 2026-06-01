@@ -167,8 +167,10 @@ const items: Item[] = [
   { file: 'WhatsApp Image 2026-06-01 at 9.08.11 AM.jpeg',     location: ACC, tag: 'Solar',   spec: ACC_SPEC },
 
   // ── General ──────────────────────────────────────────────────────────
-  { file: 'img09.jpg', location: ACC,     tag: 'Solar' },
-  { file: 'img01.jpg', location: 'Ghana', tag: 'Solar' },
+  { file: 'img09.jpg',      location: ACC,     tag: 'Solar' },
+  { file: 'img01.jpg',      location: 'Ghana', tag: 'Solar' },
+  { file: 'image.png',      location: 'Ghana', tag: 'Solar' },
+  { file: 'image copy.png', location: 'Ghana', tag: 'Solar' },
 ]
 
 const FILTERS: Array<Tag | 'All'> = ['All', 'Solar', 'Battery', 'Security']
