@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Phone, Mail, MapPin, Music2, Send, Check, Share2 } from 'lucide-react'
+import { Phone, Mail, MapPin, Music2, Send, Check } from 'lucide-react'
+import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
 const contactItems = [
   {
@@ -33,15 +34,15 @@ const contactItems = [
     href: 'https://www.tiktok.com/@leitech_systems_s',
   },
   {
-    icon: <Share2 size={18} color="#1877F2" />,
+    icon: <FaFacebook size={18} color="#1877F2" />,
     label: 'Facebook',
     value: 'Leitech Systems Solution',
     href: 'https://www.facebook.com/share/1BRZRemdQz/',
   },
   {
-    icon: <Share2 size={18} color="#E1306C" />,
+    icon: <FaInstagram size={18} color="#E1306C" />,
     label: 'Instagram',
-    value: '@leitech_systems_s',
+    value: '@leitechsystemssolution',
     href: 'https://www.instagram.com/leitechsystemssolution',
   },
 ]

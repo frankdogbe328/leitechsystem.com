@@ -1,4 +1,5 @@
 import { Zap } from 'lucide-react'
+import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa'
 
 const services = [
   'Solar Power Systems', 'CCTV Surveillance', 'Electric Fence',
@@ -99,21 +100,19 @@ export default function Footer() {
           <p style={{ fontSize: '0.6rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             © 2026 Leitech Systems Solution · All Rights Reserved · Teshie Nungua Estate, Accra
           </p>
-          <div className="footer-social" style={{ display: 'flex', gap: '1.5rem' }}>
+          <div className="footer-social" style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
             {[
-              { label: 'TikTok', href: 'https://www.tiktok.com/@leitech_systems_s' },
-              { label: 'Facebook', href: 'https://www.facebook.com/share/1BRZRemdQz/' },
-              { label: 'Instagram', href: 'https://www.instagram.com/leitechsystemssolution' },
-              { label: 'Email', href: 'mailto:leitech_systems@outlook.com' },
-              { label: 'Call Us', href: 'tel:+233508096108' },
+              { icon: <FaTiktok size={16} />, label: 'TikTok', href: 'https://www.tiktok.com/@leitech_systems_s' },
+              { icon: <FaFacebook size={16} color="#1877F2" />, label: 'Facebook', href: 'https://www.facebook.com/share/1BRZRemdQz/' },
+              { icon: <FaInstagram size={16} color="#E1306C" />, label: 'Instagram', href: 'https://www.instagram.com/leitechsystemssolution' },
             ].map((s) => (
               <a key={s.label} href={s.href}
-                target={s.href.startsWith('http') ? '_blank' : undefined}
-                rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                style={{ fontSize: '0.6rem', color: '#475569', textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.1em', transition: 'color 0.2s' }}
+                target="_blank" rel="noopener noreferrer"
+                title={s.label}
+                style={{ color: '#475569', textDecoration: 'none', transition: 'color 0.2s', display: 'flex', alignItems: 'center' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#F59E0B')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#475569')}
-              >{s.label}</a>
+              >{s.icon}</a>
             ))}
           </div>
         </div>
