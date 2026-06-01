@@ -169,8 +169,6 @@ const items: Item[] = [
   // ── General ──────────────────────────────────────────────────────────
   { file: 'img09.jpg',      location: ACC,     tag: 'Solar' },
   { file: 'img01.jpg',      location: 'Ghana', tag: 'Solar' },
-  { file: 'image.png',      location: 'Ghana', tag: 'Solar' },
-  { file: 'image copy.png', location: 'Ghana', tag: 'Solar' },
 ]
 
 const FILTERS: Array<Tag | 'All'> = ['All', 'Solar', 'Battery', 'Security']
