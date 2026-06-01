@@ -12,8 +12,8 @@ const contact = [
   { label: 'leitech_systems@outlook.com', href: 'mailto:leitech_systems@outlook.com' },
   { label: '79 Fertilizer Road, Teshie Nungua Estate, Accra', href: undefined },
   { label: '@leitech_systems_s (TikTok)', href: 'https://www.tiktok.com/@leitech_systems_s' },
-  { label: 'Leitech Systems Solution (Facebook)', href: 'https://www.facebook.com/leitechsystemssolution' },
-  { label: '@leitech_systems_s (Instagram)', href: 'https://www.instagram.com/leitech_systems_s' },
+  { label: 'Leitech Systems Solution (Facebook)', href: 'https://www.facebook.com/share/1BRZRemdQz/' },
+  { label: '@leitech_systems_s (Instagram)', href: 'https://www.instagram.com/leitechsystemssolution' },
 ]
 
 export default function Footer() {
@@ -102,8 +102,8 @@ export default function Footer() {
           <div className="footer-social" style={{ display: 'flex', gap: '1.5rem' }}>
             {[
               { label: 'TikTok', href: 'https://www.tiktok.com/@leitech_systems_s' },
-              { label: 'Facebook', href: 'https://www.facebook.com/leitechsystemssolution' },
-              { label: 'Instagram', href: 'https://www.instagram.com/leitech_systems_s' },
+              { label: 'Facebook', href: 'https://www.facebook.com/share/1BRZRemdQz/' },
+              { label: 'Instagram', href: 'https://www.instagram.com/leitechsystemssolution' },
               { label: 'Email', href: 'mailto:leitech_systems@outlook.com' },
               { label: 'Call Us', href: 'tel:+233508096108' },
             ].map((s) => (

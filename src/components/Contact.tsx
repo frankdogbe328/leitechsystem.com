@@ -36,13 +36,13 @@ const contactItems = [
     icon: <Share2 size={18} color="#1877F2" />,
     label: 'Facebook',
     value: 'Leitech Systems Solution',
-    href: 'https://www.facebook.com/leitechsystemssolution',
+    href: 'https://www.facebook.com/share/1BRZRemdQz/',
   },
   {
     icon: <Share2 size={18} color="#E1306C" />,
     label: 'Instagram',
     value: '@leitech_systems_s',
-    href: 'https://www.instagram.com/leitech_systems_s',
+    href: 'https://www.instagram.com/leitechsystemssolution',
   },
 ]
 
