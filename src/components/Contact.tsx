@@ -174,6 +174,38 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
+        {/* ── Google Map ── */}
+        <div style={{ marginTop: '4rem' }} className="rev">
+          <div style={{
+            fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.18em',
+            color: '#F59E0B', marginBottom: '1rem',
+          }}>
+            Find Us
+          </div>
+          <div style={{
+            position: 'relative', overflow: 'hidden',
+            border: '1px solid rgba(14,165,233,0.18)',
+            background: '#0F1E35',
+          }}>
+            {/* gradient top bar */}
+            <div style={{
+              position: 'absolute', top: 0, left: 0, right: 0, height: 2, zIndex: 1,
+              background: 'linear-gradient(90deg, transparent, #F59E0B, #0EA5E9, transparent)',
+            }} />
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.242325296874!2d-0.10482272575649772!3d5.599175733215575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf85b205596c09%3A0xa94383c3152a29a5!2s79%20Fertilizer%20Rd%2C%20Accra!5e1!3m2!1sen!2sgh!4v1780329341968!5m2!1sen!2sgh"
+              width="100%"
+              height="400"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Leitech Systems Solution — 79 Fertilizer Road, Teshie Nungua Estate, Accra"
+            />
+          </div>
+        </div>
+
       </div>
 
       <style>{`
