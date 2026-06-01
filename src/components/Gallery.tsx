@@ -44,6 +44,49 @@ const items: Item[] = [
   { file: 'capecoast2 12kw 45kw starge.jpeg', location: CC, tag: 'Solar', spec: CC_SPEC },
   { file: 'capecoast3 12kw 45kw starge.jpeg', location: CC, tag: 'Solar', spec: CC_SPEC },
 
+  // ── Kasoa · Solar Installation ───────────────────────────────────────
+  { file: 'kasoa1.jpeg', location: KA, tag: 'Solar' },
+  { file: 'kasoa2.jpeg', location: KA, tag: 'Solar' },
+  { file: 'kasoa3.jpeg', location: KA, tag: 'Solar' },
+  { file: 'kasoa4.jpeg', location: KA, tag: 'Solar' },
+  { file: 'kasoa5.jpeg', location: KA, tag: 'Solar' },
+  { file: 'kasoa6.jpeg', location: KA, tag: 'Solar' },
+
+  // ── Wa · wa1–wa5 ────────────────────────────────────────────────────
+  { file: 'wa1 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
+  { file: 'wa2 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
+  { file: 'wa3 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
+  { file: 'wa4 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
+  { file: 'wa5 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
+
+  // ── Mando Centra · 30kW Solar + 45kWh Storage ───────────────────────
+  { file: 'mando1 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
+  { file: 'mando2 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
+  { file: 'mando3 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
+  { file: 'mando4 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
+  { file: 'mando5 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
+  { file: 'mando6 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
+  { file: 'mando7 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
+  { file: 'mando8 30kw 45kw storage.jpeg',  location: MC, tag: 'Battery', spec: MC_SPEC },
+  { file: 'mando9 30kw 45kw storage.jpeg',  location: MC, tag: 'Battery', spec: MC_SPEC },
+  { file: 'mando10 30kw 45kw storage.jpeg', location: MC, tag: 'Battery', spec: MC_SPEC },
+
+  // ── Takwa · 15kW Solar + 21kWh Storage ──────────────────────────────
+  { file: 'Takwa1.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
+  { file: 'Takwa2.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
+  { file: 'Takwa3.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
+  { file: 'Takwa4.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
+  { file: 'Takwa5.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
+  { file: 'Takwa6.jpeg', location: TK, tag: 'Battery', spec: TK_SPEC },
+  { file: 'Takwa7.jpeg', location: TK, tag: 'Battery', spec: TK_SPEC },
+  { file: 'Takwa8.jpeg', location: TK, tag: 'Battery', spec: TK_SPEC },
+
+  // ── CCTV Security Installations ──────────────────────────────────────
+  { file: 'cctv1.jpeg', location: 'Ghana', tag: 'Security' },
+  { file: 'cctv2.jpeg', location: 'Ghana', tag: 'Security' },
+  { file: 'cctv3.jpeg', location: 'Ghana', tag: 'Security' },
+  { file: 'cctv4.jpeg', location: 'Ghana', tag: 'Security' },
+
   // ── Cape Coast · WhatsApp April 2026 batch ───────────────────────────
   { file: 'WhatsApp Image 2026-04-15 at 11.30.31 AM.jpeg',     location: CC, tag: 'Battery', spec: CC_SPEC },
   { file: 'WhatsApp Image 2026-04-15 at 11.30.32 AM.jpeg',     location: CC, tag: 'Battery', spec: CC_SPEC },
@@ -123,56 +166,12 @@ const items: Item[] = [
   { file: 'WhatsApp Image 2026-06-01 at 9.08.10 AM (3).jpeg', location: ACC, tag: 'Solar',   spec: ACC_SPEC },
   { file: 'WhatsApp Image 2026-06-01 at 9.08.11 AM.jpeg',     location: ACC, tag: 'Solar',   spec: ACC_SPEC },
 
-  // ── Wa · wa1–wa5 ────────────────────────────────────────────────────
-  { file: 'wa1 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
-  { file: 'wa2 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
-  { file: 'wa3 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
-  { file: 'wa4 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
-  { file: 'wa5 20kw 30kw storage.jpeg', location: WA, tag: 'Solar', spec: WA_SPEC },
-
-  // ── Mando Centra · 30kW Solar + 45kWh Storage ───────────────────────
-  { file: 'mando1 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
-  { file: 'mando2 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
-  { file: 'mando3 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
-  { file: 'mando4 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
-  { file: 'mando5 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
-  { file: 'mando6 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
-  { file: 'mando7 30kw 45kw storage.jpeg',  location: MC, tag: 'Solar',   spec: MC_SPEC },
-  { file: 'mando8 30kw 45kw storage.jpeg',  location: MC, tag: 'Battery', spec: MC_SPEC },
-  { file: 'mando9 30kw 45kw storage.jpeg',  location: MC, tag: 'Battery', spec: MC_SPEC },
-  { file: 'mando10 30kw 45kw storage.jpeg', location: MC, tag: 'Battery', spec: MC_SPEC },
-
-  // ── Takwa · 15kW Solar + 21kWh Storage ──────────────────────────────
-  { file: 'Takwa1.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
-  { file: 'Takwa2.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
-  { file: 'Takwa3.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
-  { file: 'Takwa4.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
-  { file: 'Takwa5.jpeg', location: TK, tag: 'Solar',   spec: TK_SPEC },
-  { file: 'Takwa6.jpeg', location: TK, tag: 'Battery', spec: TK_SPEC },
-  { file: 'Takwa7.jpeg', location: TK, tag: 'Battery', spec: TK_SPEC },
-  { file: 'Takwa8.jpeg', location: TK, tag: 'Battery', spec: TK_SPEC },
-
-  // ── Kasoa · Solar Installation ───────────────────────────────────────
-  { file: 'kasoa1.jpeg', location: KA, tag: 'Solar' },
-  { file: 'kasoa2.jpeg', location: KA, tag: 'Solar' },
-  { file: 'kasoa3.jpeg', location: KA, tag: 'Solar' },
-  { file: 'kasoa4.jpeg', location: KA, tag: 'Solar' },
-  { file: 'kasoa5.jpeg', location: KA, tag: 'Solar' },
-  { file: 'kasoa6.jpeg', location: KA, tag: 'Solar' },
-
-  // ── CCTV Security Installations ──────────────────────────────────────
-  { file: 'cctv1.jpeg', location: 'Ghana', tag: 'Security' },
-  { file: 'cctv2.jpeg', location: 'Ghana', tag: 'Security' },
-  { file: 'cctv3.jpeg', location: 'Ghana', tag: 'Security' },
-  { file: 'cctv4.jpeg', location: 'Ghana', tag: 'Security' },
-
   // ── General ──────────────────────────────────────────────────────────
-  { file: 'img09.jpg',      location: ACC,     tag: 'Solar' },
-  { file: 'img01.jpg',      location: 'Ghana', tag: 'Solar' },
-  { file: 'image copy.png', location: ACC,     tag: 'Smart' },
+  { file: 'img09.jpg', location: ACC,     tag: 'Solar' },
+  { file: 'img01.jpg', location: 'Ghana', tag: 'Solar' },
 ]
 
-const FILTERS: Array<Tag | 'All'> = ['All', 'Solar', 'Battery', 'Security', 'Smart']
+const FILTERS: Array<Tag | 'All'> = ['All', 'Solar', 'Battery', 'Security']
 const PAGE_SIZE = 24
 
 export default function Gallery() {

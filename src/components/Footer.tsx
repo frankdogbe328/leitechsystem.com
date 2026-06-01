@@ -6,11 +6,14 @@ const services = [
 ]
 
 const contact = [
-  { label: '0508 096 108', href: 'tel:0508096108' },
-  { label: '0247 291 199', href: 'tel:0247291199' },
+  { label: '+233 508 096 108 (Ghana)', href: 'tel:+233508096108' },
+  { label: '+233 247 291 199 (Ghana)', href: 'tel:+233247291199' },
+  { label: '+231 887 919 130 (Liberia)', href: 'tel:+231887919130' },
   { label: 'leitech_systems@outlook.com', href: 'mailto:leitech_systems@outlook.com' },
-  { label: 'Block H, Medolines, Burma Camp, Accra', href: undefined },
+  { label: '79 Fertilizer Road, Teshie Nungua Estate, Accra', href: undefined },
   { label: '@leitech_systems_s (TikTok)', href: 'https://www.tiktok.com/@leitech_systems_s' },
+  { label: 'Leitech Systems Solution (Facebook)', href: 'https://www.facebook.com/leitechsystemssolution' },
+  { label: '@leitech_systems_s (Instagram)', href: 'https://www.instagram.com/leitech_systems_s' },
 ]
 
 export default function Footer() {
@@ -94,13 +97,15 @@ export default function Footer() {
           flexWrap: 'wrap', gap: '1rem',
         }}>
           <p style={{ fontSize: '0.6rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            © 2026 Leitech Systems Solution · All Rights Reserved · Accra, Ghana
+            © 2026 Leitech Systems Solution · All Rights Reserved · Teshie Nungua Estate, Accra
           </p>
           <div className="footer-social" style={{ display: 'flex', gap: '1.5rem' }}>
             {[
               { label: 'TikTok', href: 'https://www.tiktok.com/@leitech_systems_s' },
+              { label: 'Facebook', href: 'https://www.facebook.com/leitechsystemssolution' },
+              { label: 'Instagram', href: 'https://www.instagram.com/leitech_systems_s' },
               { label: 'Email', href: 'mailto:leitech_systems@outlook.com' },
-              { label: 'Call Us', href: 'tel:0508096108' },
+              { label: 'Call Us', href: 'tel:+233508096108' },
             ].map((s) => (
               <a key={s.label} href={s.href}
                 target={s.href.startsWith('http') ? '_blank' : undefined}

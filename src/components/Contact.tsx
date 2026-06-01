@@ -1,12 +1,18 @@
 import { useState } from 'react'
-import { Phone, Mail, MapPin, Music2, Send, Check } from 'lucide-react'
+import { Phone, Mail, MapPin, Music2, Send, Check, Share2 } from 'lucide-react'
 
 const contactItems = [
   {
     icon: <Phone size={18} color="#F59E0B" />,
-    label: 'Phone / WhatsApp',
-    value: '0508 096 108   |   0247 291 199',
-    href: 'tel:0508096108',
+    label: 'Ghana (WhatsApp)',
+    value: '+233 508 096 108   |   +233 247 291 199',
+    href: 'tel:+233508096108',
+  },
+  {
+    icon: <Phone size={18} color="#38BDF8" />,
+    label: 'Liberia',
+    value: '+231 887 919 130',
+    href: 'tel:+231887919130',
   },
   {
     icon: <Mail size={18} color="#0EA5E9" />,
@@ -17,7 +23,7 @@ const contactItems = [
   {
     icon: <MapPin size={18} color="#10B981" />,
     label: 'Address',
-    value: 'Block H, Medolines, Burma Camp, Accra',
+    value: '79 Fertilizer Road, Teshie Nungua Estate, Accra',
     href: undefined,
   },
   {
@@ -25,6 +31,18 @@ const contactItems = [
     label: 'TikTok',
     value: '@leitech_systems_s',
     href: 'https://www.tiktok.com/@leitech_systems_s',
+  },
+  {
+    icon: <Share2 size={18} color="#1877F2" />,
+    label: 'Facebook',
+    value: 'Leitech Systems Solution',
+    href: 'https://www.facebook.com/leitechsystemssolution',
+  },
+  {
+    icon: <Share2 size={18} color="#E1306C" />,
+    label: 'Instagram',
+    value: '@leitech_systems_s',
+    href: 'https://www.instagram.com/leitech_systems_s',
   },
 ]
 
