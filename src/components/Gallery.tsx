@@ -285,7 +285,7 @@ export default function Gallery() {
               >
                 <img
                   src={`/images/${encodeURIComponent(item.file)}`}
-                  alt={item.title}
+                  alt={item.location}
                   loading={i < 8 ? 'eager' : 'lazy'}
                   decoding="async"
                   className={`gal-img${isHov ? ' gal-img-hov' : ''}`}
@@ -374,7 +374,7 @@ export default function Gallery() {
           <img
             className="lb-img"
             src={`/images/${encodeURIComponent(activeItem.file)}`}
-            alt={activeItem.title}
+            alt={activeItem.location}
             onClick={e => e.stopPropagation()}
           />
 
