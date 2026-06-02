@@ -1,4 +1,3 @@
-import { Zap } from 'lucide-react'
 import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa'
 
 const services = [
@@ -31,16 +30,12 @@ export default function Footer() {
         }} className="footer-top">
           {/* Brand */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.4rem' }}>
-              <Zap size={18} color="#F59E0B" strokeWidth={2.5} />
-              <div style={{ fontSize: '1.3rem', fontWeight: 800, letterSpacing: '0.04em' }}>
-                <span style={{ color: '#F1F5F9' }}>LEI</span>
-                <span style={{
-                  background: 'linear-gradient(90deg,#F59E0B,#38BDF8)',
-                  WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                }}>TECH</span>
-                <span style={{ color: '#F1F5F9', fontSize: '0.85rem', fontWeight: 500 }}> SYSTEMS SOLUTION</span>
-              </div>
+            <div style={{ marginBottom: '0.75rem' }}>
+              <img
+                src="/logo6.png"
+                alt="Leitech Systems Solution"
+                style={{ height: 52, width: 'auto', maxWidth: 180, objectFit: 'contain', display: 'block' }}
+              />
             </div>
             <div style={{ fontSize: '0.56rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#F59E0B', marginBottom: '1rem' }}>
               Inspire · Innovate · Secure
@@ -97,9 +92,17 @@ export default function Footer() {
           paddingTop: '2rem', borderTop: '1px solid rgba(14,165,233,0.08)',
           flexWrap: 'wrap', gap: '1rem',
         }}>
-          <p style={{ fontSize: '0.6rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            © 2026 Leitech Systems Solution · All Rights Reserved · Teshie Nungua Estate, Accra
-          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+            <p style={{ fontSize: '0.6rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+              © 2026 Leitech Systems Solution · All Rights Reserved · Teshie Nungua Estate, Accra
+            </p>
+            <p style={{ fontSize: '0.55rem', color: '#334155', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+              Powered by{' '}
+              <span style={{ background: 'linear-gradient(90deg,#F59E0B,#0EA5E9)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 700 }}>
+                Softvara
+              </span>
+            </p>
+          </div>
           <div className="footer-social" style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
             {[
               { icon: <FaTiktok size={16} />, label: 'TikTok', href: 'https://www.tiktok.com/@leitech_systems_s' },

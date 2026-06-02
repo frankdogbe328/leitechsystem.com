@@ -97,9 +97,10 @@ export default function Nav({ loaded }: Props) {
           }}
         >
           <img
-            src="/logo.jpeg"
+            src="/logo6.png"
             alt="Leitech Systems Solution"
-            style={{ height: 42, width: 'auto', objectFit: 'contain', display: 'block' }}
+            className="nav-logo"
+            style={{ height: 48, width: 'auto', maxWidth: 160, objectFit: 'contain', display: 'block' }}
           />
         </button>
 
@@ -197,7 +198,7 @@ export default function Nav({ loaded }: Props) {
           >
             Get a Quote
           </button>
-          <img src="/logo.jpeg" alt="Leitech" style={{ height: 48, width: 'auto', objectFit: 'contain', opacity: 0.7 }} />
+          <img src="/logo6.png" alt="Leitech" style={{ height: 52, width: 'auto', maxWidth: 140, objectFit: 'contain', opacity: 0.85 }} />
         </div>
       )}
 
@@ -215,10 +216,12 @@ export default function Nav({ loaded }: Props) {
           .nav-desktop { display: none !important; }
           .nav-ham     { display: flex !important; }
           nav          { padding: 1rem 1.25rem !important; }
+          .nav-logo    { height: 40px !important; }
         }
         @media (max-width: 480px) {
-          .mob-link { font-size: 1.45rem !important; }
+          .mob-link  { font-size: 1.45rem !important; }
           .mob-overlay { gap: 1.75rem !important; }
+          .nav-logo  { height: 34px !important; max-width: 120px !important; }
         }
       `}</style>
     </>

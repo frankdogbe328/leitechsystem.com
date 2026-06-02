@@ -4,10 +4,15 @@ export default function ContactPage() {
   return (
     <div className="page-enter">
       {/* Page hero */}
-      <section className="page-hero">
+      <section className="page-hero" style={{
+        backgroundImage:`linear-gradient(rgba(5,10,20,0.80),rgba(5,10,20,0.60)), url('/images/back-contact.jpeg')`,
+        backgroundSize:'cover',
+        backgroundPosition:'center',
+        backgroundRepeat:'no-repeat',
+      }}>
         <div style={{
           position:'absolute', inset:0, pointerEvents:'none',
-          backgroundImage:`linear-gradient(rgba(14,165,233,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,0.03) 1px,transparent 1px)`,
+          backgroundImage:`linear-gradient(rgba(14,165,233,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,0.04) 1px,transparent 1px)`,
           backgroundSize:'60px 60px',
           WebkitMaskImage:'radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)',
           maskImage:'radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)',

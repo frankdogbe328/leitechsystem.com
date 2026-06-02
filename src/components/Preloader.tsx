@@ -100,11 +100,12 @@ export default function Preloader({ onDone }: Props) {
             animation: `preUp 0.8s cubic-bezier(0.22,1,0.36,1) ${LOGO_DELAY}ms both`,
           }}>
             <img
-              src="/logo.jpeg"
+              src="/logo6.png"
               alt="Leitech Systems Solution"
               style={{
-                height: 'clamp(80px, 14vw, 130px)',
+                height: 'clamp(72px, 14vw, 140px)',
                 width: 'auto',
+                maxWidth: '260px',
                 objectFit: 'contain',
                 filter: 'drop-shadow(0 0 18px rgba(245,158,11,0.35))',
                 animation: 'logoGlow 2.5s ease-in-out 1.2s infinite',

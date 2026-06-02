@@ -27,6 +27,10 @@ export default function Hero({ loaded: _ }: Props) {
         alignItems: 'center', justifyContent: 'center',
         textAlign: 'center', padding: '10rem 1.5rem 6rem',
         position: 'relative', overflow: 'hidden',
+        backgroundImage: `linear-gradient(rgba(5,10,20,0.85), rgba(5,10,20,0.45)), url('/images/back2.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
       {/* Grid */}

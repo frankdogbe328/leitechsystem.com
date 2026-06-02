@@ -136,12 +136,15 @@ select option { background: #0F1E35; color: #F1F5F9; }
 
 /* ── Page hero banner (inner section header for sub-pages) ── */
 .page-hero {
-  padding: 9rem 0 5rem;
+  padding: 10rem 0 6rem;
+  min-height: 480px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(14,165,233,0.1);
+  display: flex;
+  align-items: center;
 }
-.page-hero .container { position: relative; z-index: 1; }
+.page-hero .container { position: relative; z-index: 1; width: 100%; }
 
 /* ── Responsive breakpoints ── */
 @media (max-width: 768px) {
@@ -149,7 +152,7 @@ select option { background: #0F1E35; color: #F1F5F9; }
   .section { padding: 4.5rem 0; }
   .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 2.5rem; }
   .section-desc { max-width: 100%; }
-  .page-hero { padding: 7rem 0 3rem; }
+  .page-hero { padding: 8rem 0 4rem; min-height: 380px; }
 
   /* Buttons — ensure 44px min touch target */
   .btn { min-height: 44px; padding: 0.75rem 1.5rem; font-size: 0.7rem; }
@@ -166,7 +169,7 @@ select option { background: #0F1E35; color: #F1F5F9; }
 @media (max-width: 480px) {
   .container { padding: 0 1rem; }
   .section { padding: 3.5rem 0; }
-  .page-hero { padding: 6rem 0 2.5rem; }
+  .page-hero { padding: 7rem 0 2.5rem; min-height: 320px; }
 
   /* section titles — tighten on small phones */
   h2.section-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
