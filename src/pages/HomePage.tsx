@@ -22,13 +22,13 @@ const serviceCards: SvcItem[] = [
     path: '/services',
   },
   {
-    icon: <Cpu size={28} />, color: '#10B981', bg: '/images/sh.jpeg',
+    icon: <Cpu size={28} />, color: '#10B981', bg: '/images/ci.jpeg',
     title: 'Smart Infrastructure',
     desc: 'Smart home automation, remote energy monitoring and integrated security platforms.',
     path: '/services',
   },
   {
-    icon: <Radio size={28} />, color: '#A78BFA', bg: '/images/ci.jpeg',
+    icon: <Radio size={28} />, color: '#A78BFA', bg: '/images/sh.jpeg',
     title: 'Communications',
     desc: 'HF/VHF radio, telecom cabling, network and signal system installations.',
     path: '/services',
@@ -106,8 +106,9 @@ function HomeServiceCard({ s, delay, onClick }: { s: SvcItem; delay: string; onC
         }}>{s.title}</h4>
 
         <p style={{
-          fontSize: '0.82rem', color: '#475569',
+          fontSize: '0.82rem', color: hovered ? '#CBD5E1' : '#94A3B8',
           lineHeight: 1.75, flex: 1, marginBottom: '1.5rem',
+          transition: 'color 0.25s',
         }}>{s.desc}</p>
 
         {/* Divider */}

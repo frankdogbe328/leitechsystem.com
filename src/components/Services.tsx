@@ -25,7 +25,7 @@ const categories: Category[] = [
     ],
   },
   {
-    icon: <Cpu size={28} />, label: 'Smart Infrastructure', color: '#10B981', bg: '/images/sh.jpeg',
+    icon: <Cpu size={28} />, label: 'Smart Infrastructure', color: '#10B981', bg: '/images/ci.jpeg',
     services: [
       { title: 'Smart Home Automation', desc: 'Control lighting, appliances, security, and climate from one interface.' },
       { title: 'Remote Energy Monitoring', desc: 'Real-time monitoring of your solar and energy systems from anywhere.' },
@@ -33,7 +33,7 @@ const categories: Category[] = [
     ],
   },
   {
-    icon: <Radio size={28} />, label: 'Communications Infrastructure', color: '#A78BFA', bg: '/images/ci.jpeg',
+    icon: <Radio size={28} />, label: 'Communications Infrastructure', color: '#A78BFA', bg: '/images/sh.jpeg',
     services: [
       { title: 'HF/VHF Radio Installation', desc: 'Professional radio systems for reliable comms in any environment.' },
       { title: 'Telecommunications Infrastructure', desc: 'Full telecom support — cabling, networking, and signal systems.' },
@@ -137,7 +137,7 @@ function CatCard({ cat, delay }: { cat: Category; delay: string }) {
                   marginBottom: '0.2rem', lineHeight: 1.3,
                   transition: 'color 0.25s',
                 }}>{s.title}</div>
-                <div style={{ fontSize: '0.73rem', color: '#475569', lineHeight: 1.65 }}>{s.desc}</div>
+                <div style={{ fontSize: '0.73rem', color: hovered ? '#CBD5E1' : '#94A3B8', lineHeight: 1.65, transition: 'color 0.25s' }}>{s.desc}</div>
               </div>
             </li>
           ))}
