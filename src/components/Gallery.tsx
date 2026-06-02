@@ -667,49 +667,54 @@ export default function Gallery() {
         /* Lightbox mobile */
         @media (max-width: 640px) {
           .lb-backdrop {
-            padding: 0;
-            justify-content: flex-start;
-            align-items: stretch;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
+            padding: 3.2rem 1rem 1rem;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            gap: 0;
           }
           .lb-prev, .lb-next { display: none; }
           .lb-counter { display: none; }
 
           .lb-close {
-            position: fixed; top: 0.75rem; right: 0.75rem;
-            width: 40px; height: 40px; z-index: 10;
+            position: absolute; top: 0.7rem; right: 0.7rem;
+            width: 40px; height: 40px;
           }
 
           .lb-img {
-            width: 100%;
             max-width: 100%;
-            max-height: 60vh;
+            width: auto;
+            height: auto;
+            max-height: 52vh;
             object-fit: contain;
             border: none;
             box-shadow: none;
-            margin-top: 3.5rem;
             flex-shrink: 0;
+            border-radius: 4px;
           }
 
           .lb-caption {
-            margin-top: 0.75rem;
-            padding: 0 1.25rem;
+            margin-top: 0.7rem;
+            padding: 0 0.5rem;
             flex-shrink: 0;
           }
-          .lb-caption-title { font-size: 0.78rem; }
-          .lb-caption-spec  { font-size: 0.65rem; }
+          .lb-caption-title { font-size: 0.76rem; }
+          .lb-caption-spec  { font-size: 0.62rem; }
 
           .lb-mobile-nav {
             display: flex; align-items: center; gap: 1rem;
             justify-content: center;
-            padding: 1rem 1.25rem 2rem;
+            margin-top: 0.8rem;
+            padding: 0;
             flex-shrink: 0;
           }
+
+          .lb-mobile-counter { font-size: 0.58rem; }
         }
 
-        @media (max-width: 400px) {
-          .lb-img { max-height: 52vh; margin-top: 3rem; }
+        @media (max-width: 380px) {
+          .lb-img { max-height: 45vh; }
+          .lb-backdrop { padding-top: 2.8rem; }
         }
       `}</style>
     </section>
