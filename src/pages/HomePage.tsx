@@ -6,29 +6,29 @@ import WhyUs from '../components/WhyUs'
 import Testimonials from '../components/Testimonials'
 import type { ReactNode } from 'react'
 
-interface SvcItem { icon: ReactNode; color: string; title: string; desc: string; path: string }
+interface SvcItem { icon: ReactNode; color: string; bg: string; title: string; desc: string; path: string }
 
 const serviceCards: SvcItem[] = [
   {
-    icon: <Sun size={28} />, color: '#F59E0B',
+    icon: <Sun size={28} />, color: '#F59E0B', bg: '/images/sl.jpeg',
     title: 'Solar Power Systems',
     desc: 'Residential, commercial and industrial solar design, installation and battery storage solutions.',
     path: '/services',
   },
   {
-    icon: <Lock size={28} />, color: '#0EA5E9',
+    icon: <Lock size={28} />, color: '#0EA5E9', bg: '/images/si.jpeg',
     title: 'Security Infrastructure',
     desc: 'CCTV, electric fencing, access control and intercom systems for any property type.',
     path: '/services',
   },
   {
-    icon: <Cpu size={28} />, color: '#10B981',
+    icon: <Cpu size={28} />, color: '#10B981', bg: '/images/sh.jpeg',
     title: 'Smart Infrastructure',
     desc: 'Smart home automation, remote energy monitoring and integrated security platforms.',
     path: '/services',
   },
   {
-    icon: <Radio size={28} />, color: '#A78BFA',
+    icon: <Radio size={28} />, color: '#A78BFA', bg: '/images/ci.jpeg',
     title: 'Communications',
     desc: 'HF/VHF radio, telecom cabling, network and signal system installations.',
     path: '/services',
@@ -46,7 +46,12 @@ function HomeServiceCard({ s, delay, onClick }: { s: SvcItem; delay: string; onC
       onClick={onClick}
     >
       <div style={{
-        background: hovered ? 'rgba(20,38,66,0.98)' : 'rgba(15,30,53,0.90)',
+        backgroundImage: hovered
+          ? `linear-gradient(160deg, rgba(5,12,25,0.60) 0%, rgba(8,18,38,0.78) 100%), url('${s.bg}')`
+          : `linear-gradient(160deg, rgba(5,12,25,0.70) 0%, rgba(8,18,38,0.82) 100%), url('${s.bg}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         border: `1px solid ${hovered ? s.color + '55' : 'rgba(14,165,233,0.12)'}`,
         borderRadius: 20,
         padding: '2.4rem 2rem',
