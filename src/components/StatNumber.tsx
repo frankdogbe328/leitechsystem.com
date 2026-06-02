@@ -30,7 +30,7 @@ export default function StatNumber({ value, delay = 0, style }: Props) {
 
     const startCount = () => {
       timeoutId = setTimeout(() => {
-        const duration = 1600
+        const duration = 1000
         const startTime = performance.now()
         const tick = (now: number) => {
           const elapsed = now - startTime

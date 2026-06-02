@@ -154,7 +154,7 @@ export default function Hero({ loaded: _ }: Props) {
           }}>
             <StatNumber
               value={s.n}
-              delay={Math.round((PRELOADER_END_S + 0.85) * 1000)}
+              delay={400}
               style={{
                 fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', fontWeight: 800, lineHeight: 1, marginBottom: '0.3rem',
                 background: 'linear-gradient(135deg, #F59E0B, #FCD34D)',
