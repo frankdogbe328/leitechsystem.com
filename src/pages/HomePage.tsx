@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Sun, Lock, Cpu, Radio, ArrowRight } from 'lucide-react'
 import Hero from '../components/Hero'
 import WhyUs from '../components/WhyUs'
 import Testimonials from '../components/Testimonials'
+import type { ReactNode } from 'react'
 
-const serviceCards = [
+interface SvcItem { icon: ReactNode; color: string; title: string; desc: string; path: string }
+
+const serviceCards: SvcItem[] = [
   {
     icon: <Sun size={28} />, color: '#F59E0B',
     title: 'Solar Power Systems',
@@ -31,12 +35,102 @@ const serviceCards = [
   },
 ]
 
+function HomeServiceCard({ s, delay, onClick }: { s: SvcItem; delay: string; onClick: () => void }) {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <div
+      className="hs-card rev"
+      style={{ animationDelay: delay }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={onClick}
+    >
+      <div style={{
+        background: hovered ? 'rgba(20,38,66,0.98)' : 'rgba(15,30,53,0.90)',
+        border: `1px solid ${hovered ? s.color + '55' : 'rgba(14,165,233,0.12)'}`,
+        borderRadius: 20,
+        padding: '2.4rem 2rem',
+        height: '100%',
+        position: 'relative',
+        overflow: 'hidden',
+        backdropFilter: 'blur(16px)',
+        transform: hovered ? 'translateY(-8px)' : 'translateY(0)',
+        boxShadow: hovered
+          ? `0 28px 70px rgba(0,0,0,0.5), 0 0 0 1px ${s.color}30, 0 8px 40px ${s.color}20`
+          : '0 6px 32px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.18)',
+        transition: 'all 0.38s cubic-bezier(0.22,1,0.36,1)',
+        cursor: 'pointer',
+        display: 'flex', flexDirection: 'column',
+      }}>
+
+        {/* Top accent */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: 3,
+          background: `linear-gradient(90deg, ${s.color}00, ${s.color}, ${s.color}00)`,
+          opacity: hovered ? 1 : 0.3,
+          transition: 'opacity 0.35s',
+          borderRadius: '20px 20px 0 0',
+        }} />
+
+        {/* Corner glow */}
+        <div style={{
+          position: 'absolute', top: -60, right: -60,
+          width: 180, height: 180, borderRadius: '50%',
+          background: `radial-gradient(circle, ${s.color}18 0%, transparent 65%)`,
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity 0.4s',
+          pointerEvents: 'none',
+        }} />
+
+        {/* Icon */}
+        <div style={{
+          width: 58, height: 58, borderRadius: 14,
+          background: hovered ? `${s.color}22` : `${s.color}14`,
+          border: `1px solid ${hovered ? s.color + '55' : s.color + '28'}`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: s.color, marginBottom: '1.4rem', flexShrink: 0,
+          boxShadow: hovered ? `0 0 28px ${s.color}35` : 'none',
+          transition: 'all 0.35s',
+        }}>{s.icon}</div>
+
+        <h4 style={{
+          fontSize: '1.05rem', fontWeight: 700,
+          marginBottom: '0.7rem', lineHeight: 1.3,
+          color: hovered ? '#F1F5F9' : '#E2E8F0',
+          transition: 'color 0.25s',
+        }}>{s.title}</h4>
+
+        <p style={{
+          fontSize: '0.82rem', color: '#475569',
+          lineHeight: 1.75, flex: 1, marginBottom: '1.5rem',
+        }}>{s.desc}</p>
+
+        {/* Divider */}
+        <div style={{
+          height: 1, marginBottom: '1.1rem',
+          background: `linear-gradient(90deg, ${s.color}33, transparent)`,
+          opacity: hovered ? 1 : 0.4, transition: 'opacity 0.3s',
+        }} />
+
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: '0.4rem',
+          fontSize: '0.72rem', fontWeight: 600,
+          color: hovered ? s.color : '#475569',
+          transition: 'color 0.25s',
+        }}>
+          Learn more
+          <ArrowRight size={13} style={{ transition: 'transform 0.25s', transform: hovered ? 'translateX(4px)' : 'none' }} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function HomePage() {
   const navigate = useNavigate()
 
   return (
     <div className="page-enter">
-      {/* Hero — full viewport, animations keyed to preloader exit */}
       <Hero loaded />
 
       {/* ── Services teaser ── */}
@@ -54,45 +148,14 @@ export default function HomePage() {
 
           <div style={{
             display: 'grid', gridTemplateColumns: 'repeat(4,1fr)',
-            gap: '1px', background: 'rgba(14,165,233,0.06)',
-            border: '1px solid rgba(14,165,233,0.08)',
-            marginBottom: '2.5rem',
+            gap: '1.25rem', marginBottom: '2.5rem',
           }} className="home-svc-grid">
             {serviceCards.map((s, i) => (
-              <div key={i} className={`rev d${i as 0|1|2|3}`} style={{
-                background: '#0F1E35', padding: '2.2rem 1.8rem',
-                cursor: 'pointer', transition: 'background 0.3s',
-                position: 'relative', overflow: 'hidden',
-              }}
+              <HomeServiceCard
+                key={i} s={s}
+                delay={`${i * 75}ms`}
                 onClick={() => navigate(s.path)}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = '#142642'
-                  const line = e.currentTarget.querySelector('.hsl') as HTMLElement
-                  if (line) line.style.transform = 'scaleX(1)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = '#0F1E35'
-                  const line = e.currentTarget.querySelector('.hsl') as HTMLElement
-                  if (line) line.style.transform = 'scaleX(0)'
-                }}
-              >
-                <div className="hsl" style={{
-                  position: 'absolute', bottom: 0, left: 0, right: 0, height: 2,
-                  background: `linear-gradient(90deg, transparent, ${s.color}, transparent)`,
-                  transform: 'scaleX(0)', transition: 'transform 0.4s',
-                }} />
-                <div style={{
-                  width: 52, height: 52, borderRadius: 8,
-                  background: `${s.color}14`, border: `1px solid ${s.color}28`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: s.color, marginBottom: '1.4rem',
-                }}>{s.icon}</div>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.6rem', lineHeight: 1.25 }}>{s.title}</h4>
-                <p style={{ fontSize: '0.8rem', color: '#475569', lineHeight: 1.65 }}>{s.desc}</p>
-                <div style={{ marginTop: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.68rem', color: s.color, fontWeight: 600 }}>
-                  Learn more <ArrowRight size={12} />
-                </div>
-              </div>
+              />
             ))}
           </div>
 
@@ -104,10 +167,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why choose us */}
       <WhyUs />
-
-      {/* Testimonials */}
       <Testimonials />
 
       {/* ── CTA Banner ── */}
@@ -135,7 +195,7 @@ export default function HomePage() {
 
       <style>{`
         @media (max-width: 1100px) { .home-svc-grid { grid-template-columns: repeat(2,1fr) !important; } }
-        @media (max-width: 600px)  { .home-svc-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 540px)  { .home-svc-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </div>
   )

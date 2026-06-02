@@ -19,7 +19,6 @@ export default function Layout({ loaded }: Props) {
   useEffect(() => {
     if (!loaded) return
 
-    // Short delay so the new page's DOM is painted before we observe
     const t = setTimeout(() => {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -30,11 +29,22 @@ export default function Layout({ loaded }: Props) {
             }
           })
         },
-        { threshold: 0.1 }
+        { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
       )
-      document.querySelectorAll('.rev:not(.on)').forEach((el) => observer.observe(el))
+
+      const els = document.querySelectorAll('.rev:not(.on)')
+      els.forEach((el) => {
+        // Immediately reveal elements already in viewport (avoids flash on refresh)
+        const rect = el.getBoundingClientRect()
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('on')
+        } else {
+          observer.observe(el)
+        }
+      })
+
       return () => observer.disconnect()
-    }, 120)
+    }, 60)
 
     return () => clearTimeout(t)
   }, [location.pathname, loaded])
