@@ -3,11 +3,11 @@ import { Sun, Lock, Cpu, Radio, ChevronRight } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 interface ServiceItem { title: string; desc: string }
-interface Category { icon: ReactNode; label: string; color: string; services: ServiceItem[] }
+interface Category { icon: ReactNode; label: string; color: string; bg: string; services: ServiceItem[] }
 
 const categories: Category[] = [
   {
-    icon: <Sun size={28} />, label: 'Solar Power Systems', color: '#F59E0B',
+    icon: <Sun size={28} />, label: 'Solar Power Systems', color: '#F59E0B', bg: '/images/sl.jpeg',
     services: [
       { title: 'Residential Solar', desc: 'Custom solar solutions for homes — reduce bills and stay powered during outages.' },
       { title: 'Commercial & Industrial Solar', desc: 'Large-scale systems for businesses, factories, and industrial facilities.' },
@@ -16,7 +16,7 @@ const categories: Category[] = [
     ],
   },
   {
-    icon: <Lock size={28} />, label: 'Security Infrastructure', color: '#0EA5E9',
+    icon: <Lock size={28} />, label: 'Security Infrastructure', color: '#0EA5E9', bg: '/images/si.jpeg',
     services: [
       { title: 'CCTV Surveillance', desc: 'Full-perimeter HD camera systems with night-vision and remote monitoring.' },
       { title: 'Electric Fence', desc: 'High-performance fencing for maximum perimeter security on any property.' },
@@ -25,7 +25,7 @@ const categories: Category[] = [
     ],
   },
   {
-    icon: <Cpu size={28} />, label: 'Smart Infrastructure', color: '#10B981',
+    icon: <Cpu size={28} />, label: 'Smart Infrastructure', color: '#10B981', bg: '/images/sh.jpeg',
     services: [
       { title: 'Smart Home Automation', desc: 'Control lighting, appliances, security, and climate from one interface.' },
       { title: 'Remote Energy Monitoring', desc: 'Real-time monitoring of your solar and energy systems from anywhere.' },
@@ -33,7 +33,7 @@ const categories: Category[] = [
     ],
   },
   {
-    icon: <Radio size={28} />, label: 'Communications Infrastructure', color: '#A78BFA',
+    icon: <Radio size={28} />, label: 'Communications Infrastructure', color: '#A78BFA', bg: '/images/ci.jpeg',
     services: [
       { title: 'HF/VHF Radio Installation', desc: 'Professional radio systems for reliable comms in any environment.' },
       { title: 'Telecommunications Infrastructure', desc: 'Full telecom support — cabling, networking, and signal systems.' },
@@ -52,14 +52,15 @@ function CatCard({ cat, delay }: { cat: Category; delay: string }) {
       onMouseLeave={() => setHovered(false)}
     >
       <div style={{
-        background: hovered ? 'rgba(20,38,66,0.98)' : 'rgba(15,30,53,0.90)',
+        backgroundImage: `linear-gradient(rgba(5,12,25,0.82), rgba(8,18,38,0.92)), url('${cat.bg}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         border: `1px solid ${hovered ? cat.color + '55' : 'rgba(14,165,233,0.12)'}`,
         borderRadius: 20,
         padding: '2.4rem 2.2rem',
         height: '100%',
         position: 'relative',
         overflow: 'hidden',
-        backdropFilter: 'blur(16px)',
         transform: hovered ? 'translateY(-8px)' : 'translateY(0)',
         boxShadow: hovered
           ? `0 28px 70px rgba(0,0,0,0.5), 0 0 0 1px ${cat.color}30, 0 8px 40px ${cat.color}20`
