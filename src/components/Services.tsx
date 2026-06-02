@@ -52,9 +52,12 @@ function CatCard({ cat, delay }: { cat: Category; delay: string }) {
       onMouseLeave={() => setHovered(false)}
     >
       <div style={{
-        backgroundImage: `linear-gradient(rgba(5,12,25,0.82), rgba(8,18,38,0.92)), url('${cat.bg}')`,
+        backgroundImage: hovered
+          ? `linear-gradient(160deg, rgba(5,12,25,0.60) 0%, rgba(8,18,38,0.78) 100%), url('${cat.bg}')`
+          : `linear-gradient(160deg, rgba(5,12,25,0.70) 0%, rgba(8,18,38,0.82) 100%), url('${cat.bg}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         border: `1px solid ${hovered ? cat.color + '55' : 'rgba(14,165,233,0.12)'}`,
         borderRadius: 20,
         padding: '2.4rem 2.2rem',
