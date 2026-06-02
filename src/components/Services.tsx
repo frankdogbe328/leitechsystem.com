@@ -1,17 +1,9 @@
+import { useState } from 'react'
 import { Sun, Lock, Cpu, Radio } from 'lucide-react'
 import type { ReactNode } from 'react'
 
-interface ServiceCard {
-  title: string
-  desc: string
-}
-
-interface Category {
-  icon: ReactNode
-  label: string
-  color: string
-  services: ServiceCard[]
-}
+interface ServiceCard { title: string; desc: string }
+interface Category { icon: ReactNode; label: string; color: string; services: ServiceCard[] }
 
 const categories: Category[] = [
   {
@@ -50,6 +42,68 @@ const categories: Category[] = [
   },
 ]
 
+function SvcCard({ s, color }: { s: ServiceCard; color: string }) {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <div
+      className="svc-card"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: hovered ? 'rgba(20,38,66,0.95)' : 'rgba(15,30,53,0.85)',
+        border: `1px solid ${hovered ? color + '44' : 'rgba(14,165,233,0.12)'}`,
+        borderRadius: 16,
+        padding: '2rem 1.8rem',
+        position: 'relative',
+        overflow: 'hidden',
+        backdropFilter: 'blur(12px)',
+        transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
+        boxShadow: hovered
+          ? `0 20px 60px rgba(0,0,0,0.45), 0 0 0 1px ${color}22, 0 4px 20px ${color}18`
+          : '0 4px 24px rgba(0,0,0,0.28), 0 1px 2px rgba(0,0,0,0.18)',
+        transition: 'all 0.35s cubic-bezier(0.22,1,0.36,1)',
+        cursor: 'default',
+      }}
+    >
+      {/* Top accent bar */}
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0, height: 2,
+        background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
+        opacity: hovered ? 1 : 0,
+        transition: 'opacity 0.35s',
+      }} />
+
+      {/* Ambient glow */}
+      <div style={{
+        position: 'absolute', top: -40, right: -40,
+        width: 100, height: 100, borderRadius: '50%',
+        background: `radial-gradient(circle, ${color}18 0%, transparent 70%)`,
+        opacity: hovered ? 1 : 0,
+        transition: 'opacity 0.35s',
+        pointerEvents: 'none',
+      }} />
+
+      {/* Icon dot */}
+      <div style={{
+        width: 36, height: 36, borderRadius: 10,
+        background: `${color}18`, border: `1px solid ${color}33`,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        marginBottom: '1.2rem',
+      }}>
+        <div style={{ width: 8, height: 8, borderRadius: '50%', background: color }} />
+      </div>
+
+      <h4 style={{
+        fontSize: '0.95rem', fontWeight: 700,
+        marginBottom: '0.65rem', lineHeight: 1.3,
+        color: hovered ? '#F1F5F9' : '#E2E8F0',
+        transition: 'color 0.25s',
+      }}>{s.title}</h4>
+      <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.7 }}>{s.desc}</p>
+    </div>
+  )
+}
+
 export default function Services() {
   return (
     <section id="services" className="section">
@@ -68,60 +122,26 @@ export default function Services() {
           {categories.map((cat, ci) => (
             <div key={ci} className="rev">
               {/* Category header */}
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: '1rem',
-                marginBottom: '1.5rem',
-              }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.75rem' }}>
                 <div style={{
-                  width: 48, height: 48, borderRadius: 6,
-                  background: `${cat.color}14`,
-                  border: `1px solid ${cat.color}33`,
+                  width: 48, height: 48, borderRadius: 12,
+                  background: `${cat.color}14`, border: `1px solid ${cat.color}33`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   color: cat.color, flexShrink: 0,
+                  boxShadow: `0 0 20px ${cat.color}18`,
                 }}>{cat.icon}</div>
                 <div className="svc-cat-label" style={{ fontWeight: 700, fontSize: '1.3rem' }}>{cat.label}</div>
-                <div style={{
-                  flex: 1, height: 1,
-                  background: `linear-gradient(90deg, ${cat.color}33, transparent)`,
-                }} />
+                <div style={{ flex: 1, height: 1, background: `linear-gradient(90deg, ${cat.color}33, transparent)` }} />
               </div>
 
               {/* Cards grid */}
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: `repeat(${cat.services.length === 3 ? 3 : 4}, 1fr)`,
-                gap: 1, background: 'rgba(14,165,233,0.06)',
-                border: '1px solid rgba(14,165,233,0.08)',
+                gap: '1.25rem',
               }} className="svc-row">
                 {cat.services.map((s, si) => (
-                  <div key={si} className="svc-card" style={{
-                    background: '#0F1E35', padding: '1.8rem 1.6rem',
-                    position: 'relative', overflow: 'hidden',
-                    transition: 'background 0.3s',
-                  }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#142642'
-                      const line = e.currentTarget.querySelector('.svc-line') as HTMLElement
-                      if (line) line.style.transform = 'scaleX(1)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = '#0F1E35'
-                      const line = e.currentTarget.querySelector('.svc-line') as HTMLElement
-                      if (line) line.style.transform = 'scaleX(0)'
-                    }}
-                  >
-                    <div className="svc-line" style={{
-                      position: 'absolute', bottom: 0, left: 0, right: 0, height: 2,
-                      background: `linear-gradient(90deg, transparent, ${cat.color}, transparent)`,
-                      transform: 'scaleX(0)', transition: 'transform 0.4s',
-                    }} />
-                    <div style={{
-                      width: 8, height: 8, borderRadius: '50%',
-                      background: cat.color, opacity: 0.7, marginBottom: '1rem',
-                    }} />
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.6rem', lineHeight: 1.3 }}>{s.title}</h4>
-                    <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.65 }}>{s.desc}</p>
-                  </div>
+                  <SvcCard key={si} s={s} color={cat.color} />
                 ))}
               </div>
             </div>
@@ -134,7 +154,6 @@ export default function Services() {
         @media (max-width: 768px) {
           .svc-categories { gap: 2.5rem !important; }
           .svc-cat-label { font-size: 1.05rem !important; }
-          .svc-card { padding: 1.4rem 1.2rem !important; }
         }
         @media (max-width: 480px) {
           .svc-row { grid-template-columns: 1fr !important; }

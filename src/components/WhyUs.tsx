@@ -1,13 +1,8 @@
+import { useState } from 'react'
 import { Award, Package, Users, HeartHandshake, Settings, BadgeDollarSign } from 'lucide-react'
 import type { ReactNode } from 'react'
 
-interface Card {
-  icon: ReactNode
-  title: string
-  desc: string
-  tag: string
-  color: string
-}
+interface Card { icon: ReactNode; title: string; desc: string; tag: string; color: string }
 
 const cards: Card[] = [
   {
@@ -42,6 +37,97 @@ const cards: Card[] = [
   },
 ]
 
+function WhyCard({ c, delay }: { c: Card; delay: string }) {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <div
+      className={`why-card rev`}
+      style={{ animationDelay: delay }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div style={{
+        background: hovered ? 'rgba(20,38,66,0.98)' : 'rgba(15,30,53,0.9)',
+        border: `1px solid ${hovered ? c.color + '50' : 'rgba(14,165,233,0.12)'}`,
+        borderRadius: 20,
+        padding: '2.4rem 2.2rem',
+        height: '100%',
+        position: 'relative',
+        overflow: 'hidden',
+        backdropFilter: 'blur(16px)',
+        transform: hovered ? 'translateY(-8px) scale(1.01)' : 'translateY(0) scale(1)',
+        boxShadow: hovered
+          ? `0 24px 70px rgba(0,0,0,0.5), 0 0 0 1px ${c.color}30, 0 8px 32px ${c.color}20`
+          : '0 6px 32px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.2)',
+        transition: 'all 0.38s cubic-bezier(0.22,1,0.36,1)',
+        cursor: 'default',
+        display: 'flex', flexDirection: 'column',
+      }}>
+
+        {/* Top accent bar */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: 3,
+          background: `linear-gradient(90deg, ${c.color}00, ${c.color}, ${c.color}00)`,
+          opacity: hovered ? 1 : 0.3,
+          transition: 'opacity 0.35s',
+          borderRadius: '20px 20px 0 0',
+        }} />
+
+        {/* Corner glow */}
+        <div style={{
+          position: 'absolute', top: -60, right: -60,
+          width: 160, height: 160, borderRadius: '50%',
+          background: `radial-gradient(circle, ${c.color}20 0%, transparent 65%)`,
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity 0.4s',
+          pointerEvents: 'none',
+        }} />
+
+        {/* Icon */}
+        <div style={{
+          width: 58, height: 58, borderRadius: 14,
+          background: hovered ? `${c.color}20` : `${c.color}12`,
+          border: `1px solid ${hovered ? c.color + '50' : c.color + '28'}`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: c.color, marginBottom: '1.6rem', flexShrink: 0,
+          boxShadow: hovered ? `0 0 24px ${c.color}30` : 'none',
+          transition: 'all 0.35s',
+        }}>{c.icon}</div>
+
+        <h4 style={{
+          fontSize: '1.05rem', fontWeight: 700,
+          marginBottom: '0.8rem', lineHeight: 1.3,
+          color: hovered ? '#F1F5F9' : '#E2E8F0',
+          transition: 'color 0.25s',
+        }}>{c.title}</h4>
+
+        <p style={{
+          fontSize: '0.82rem', color: hovered ? '#64748B' : '#475569',
+          lineHeight: 1.8, marginBottom: '1.5rem', flex: 1,
+          transition: 'color 0.25s',
+        }}>{c.desc}</p>
+
+        {/* Tag pill */}
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+          fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.06em',
+          color: c.color,
+          background: `${c.color}12`,
+          border: `1px solid ${c.color}28`,
+          borderRadius: 50, padding: '0.35rem 0.85rem',
+          width: 'fit-content',
+        }}>
+          <span style={{
+            width: 6, height: 6, borderRadius: '50%',
+            background: c.color, flexShrink: 0,
+          }} />
+          {c.tag}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function WhyUs() {
   return (
     <section id="why" className="section">
@@ -56,61 +142,17 @@ export default function WhyUs() {
 
         <div style={{
           display: 'grid', gridTemplateColumns: 'repeat(3,1fr)',
-          gap: 1, background: 'rgba(14,165,233,0.06)', border: '1px solid rgba(14,165,233,0.08)',
+          gap: '1.5rem',
         }} className="why-grid">
           {cards.map((c, i) => (
-            <div key={i} className={`why-card rev d${(i % 3) as 0 | 1 | 2}`} style={{
-              background: '#0F1E35', padding: '2.5rem 2rem',
-              position: 'relative', overflow: 'hidden',
-              transition: 'background 0.3s',
-            }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#142642'
-                const line = e.currentTarget.querySelector('.why-line') as HTMLElement
-                if (line) line.style.transform = 'scaleX(1)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#0F1E35'
-                const line = e.currentTarget.querySelector('.why-line') as HTMLElement
-                if (line) line.style.transform = 'scaleX(0)'
-              }}
-            >
-              <div className="why-line" style={{
-                position: 'absolute', bottom: 0, left: 0, right: 0, height: 2,
-                background: `linear-gradient(90deg, transparent, ${c.color}, transparent)`,
-                transform: 'scaleX(0)', transition: 'transform 0.4s',
-              }} />
-
-              <div style={{
-                width: 54, height: 54, borderRadius: 8,
-                background: `${c.color}12`, border: `1px solid ${c.color}28`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: c.color, marginBottom: '1.4rem',
-              }}>{c.icon}</div>
-
-              <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.7rem', lineHeight: 1.3 }}>{c.title}</h4>
-              <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.75, marginBottom: '1.1rem' }}>{c.desc}</p>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                fontSize: '0.68rem', color: c.color, fontWeight: 600,
-              }}>
-                <span style={{ color: c.color }}>✓</span> {c.tag}
-              </div>
-            </div>
+            <WhyCard key={i} c={c} delay={`${i * 80}ms`} />
           ))}
         </div>
       </div>
 
       <style>{`
         @media (max-width: 1000px) { .why-grid { grid-template-columns: repeat(2,1fr) !important; } }
-        @media (max-width: 768px) {
-          .why-grid { grid-template-columns: repeat(2,1fr) !important; }
-          .why-card { padding: 1.8rem 1.4rem !important; }
-        }
-        @media (max-width: 480px) {
-          .why-grid { grid-template-columns: 1fr !important; }
-          .why-card { padding: 1.6rem 1.2rem !important; }
-        }
+        @media (max-width: 480px)  { .why-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
   )
