@@ -168,6 +168,13 @@ select option { background: #0F1E35; color: #F1F5F9; }
 .page-hero .container { position: relative; z-index: 1; width: 100%; }
 
 /* ── Responsive breakpoints ── */
+@media (max-width: 1024px) {
+  .container { padding: 0 2rem; }
+  .section { padding: 5.5rem 0; }
+  .page-hero { padding: 9rem 0 5rem; min-height: 420px; }
+  .section-header { margin-bottom: 3rem; }
+}
+
 @media (max-width: 768px) {
   .container { padding: 0 1.25rem; }
   .section { padding: 4.5rem 0; }
@@ -197,4 +204,9 @@ select option { background: #0F1E35; color: #F1F5F9; }
 
   /* CTA button groups — stack and go full-width on phones */
   .cta-group .btn { width: 100%; justify-content: center; }
+
+  /* Cards — reduce padding so content doesn't feel crushed */
+  .why-card > div,
+  .testi-card,
+  .hs-card > div { padding: 1.6rem 1.4rem !important; }
 }

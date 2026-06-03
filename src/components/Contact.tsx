@@ -196,6 +196,7 @@ export default function Contact({ showHeader = true }: { showHeader?: boolean })
               background: 'linear-gradient(90deg, transparent, #F59E0B, #0EA5E9, transparent)',
             }} />
             <iframe
+              className="contact-map-frame"
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3970.742488075416!2d-0.10546599999999999!3d5.605004999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNcKwMzYnMTguMCJOIDDCsDA2JzE5LjciVw!5e0!3m2!1sen!2sgh!4v1780425805599!5m2!1sen!2sgh"
               width="100%"
               height="400"
@@ -216,10 +217,12 @@ export default function Contact({ showHeader = true }: { showHeader?: boolean })
           .contact-grid { gap: 2.5rem !important; }
           .contact-form-card { padding: 1.8rem !important; }
           .f-row { grid-template-columns: 1fr !important; }
+          .contact-map-frame { height: 280px !important; }
         }
         @media (max-width: 480px) {
           .contact-form-card { padding: 1.4rem !important; }
           .f-row { grid-template-columns: 1fr !important; }
+          .contact-map-frame { height: 220px !important; }
         }
       `}</style>
     </section>

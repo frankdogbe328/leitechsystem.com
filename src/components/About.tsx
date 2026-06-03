@@ -142,7 +142,7 @@ export default function About() {
                   Base of Operations
                 </div>
                 <div style={{ fontSize: '0.85rem', color: '#94A3B8', fontWeight: 500 }}>
-                  Block H, Medolines, Burma Camp, Accra
+                  79 Fertilizer Road, Teshie Nungua Estate, Accra
                 </div>
               </div>
             </div>

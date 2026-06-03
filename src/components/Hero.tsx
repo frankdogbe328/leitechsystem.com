@@ -45,14 +45,14 @@ export default function Hero({ loaded: _ }: Props) {
         maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent)',
       }} />
 
-      {/* Orbs */}
-      <div style={{ position:'absolute', width:700, height:700, borderRadius:'50%',
+      {/* Orbs — capped at viewport width to prevent horizontal overflow */}
+      <div style={{ position:'absolute', width:'min(700px,90vw)', height:'min(700px,90vw)', borderRadius:'50%',
         background:'radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%)',
         top:'50%', left:'50%', transform:'translate(-50%,-50%)', pointerEvents:'none' }} />
-      <div style={{ position:'absolute', width:500, height:500, borderRadius:'50%',
+      <div style={{ position:'absolute', width:'min(500px,70vw)', height:'min(500px,70vw)', borderRadius:'50%',
         background:'radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 70%)',
         top:'-100px', right:'-100px', pointerEvents:'none' }} />
-      <div style={{ position:'absolute', width:400, height:400, borderRadius:'50%',
+      <div style={{ position:'absolute', width:'min(400px,60vw)', height:'min(400px,60vw)', borderRadius:'50%',
         background:'radial-gradient(circle, rgba(16,185,129,0.05) 0%, transparent 70%)',
         bottom:'-80px', left:'-80px', pointerEvents:'none' }} />
 
@@ -187,6 +187,11 @@ export default function Hero({ loaded: _ }: Props) {
         @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
         /* Hero responsive */
+        @media (max-width:1024px) {
+          .hero-section { padding: 9rem 1.5rem 5rem !important; }
+          .hero-stats-bar { max-width: 100% !important; flex-wrap: wrap !important; }
+          .hero-stats-bar > div { min-width: 140px !important; flex: 1 1 140px !important; }
+        }
         @media (max-width:768px) {
           .hero-section { padding: 8rem 1.25rem 5rem !important; }
           .hero-stats-bar { flex-direction: column !important; margin-top: 3rem !important; }
@@ -197,6 +202,7 @@ export default function Hero({ loaded: _ }: Props) {
           .hero-section { padding: 7rem 1rem 4rem !important; }
           .hero-ctas { flex-direction: column !important; width: 100%; }
           .hero-ctas .btn { width: 100%; justify-content: center; }
+          .hero-stats-bar > div > div { font-size: 0.58rem !important; }
         }
       `}</style>
     </section>

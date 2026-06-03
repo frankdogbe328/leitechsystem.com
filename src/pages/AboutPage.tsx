@@ -117,7 +117,7 @@ export default function AboutPage() {
                 </div>
                 <div style={{ padding:'1.2rem', background:'rgba(14,165,233,0.04)', border:'1px solid rgba(14,165,233,0.1)' }}>
                   <div style={{ fontSize:'0.56rem', textTransform:'uppercase', letterSpacing:'0.14em', color:'#475569', marginBottom:'0.4rem' }}>Base of Operations</div>
-                  <div style={{ fontSize:'0.85rem', color:'#94A3B8', fontWeight:500 }}>Block H, Medolines, Burma Camp, Accra</div>
+                  <div style={{ fontSize:'0.85rem', color:'#94A3B8', fontWeight:500 }}>79 Fertilizer Road, Teshie Nungua Estate, Accra</div>
                 </div>
               </div>
             </div>

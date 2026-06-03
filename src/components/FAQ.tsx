@@ -74,7 +74,7 @@ export default function FAQ() {
               </button>
 
               <div style={{
-                maxHeight: open === i ? 300 : 0,
+                maxHeight: open === i ? 600 : 0,
                 overflow: 'hidden',
                 transition: 'max-height 0.45s ease',
               }}>

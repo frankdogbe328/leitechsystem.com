@@ -128,7 +128,7 @@ function TestiCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
 
       <StarRow count={t.stars} color={t.color} />
 
-      <div style={{
+      <div className="testi-quote-mark" style={{
         fontSize: '4rem', lineHeight: 0.7, color: t.color,
         opacity: hovered ? 0.18 : 0.1, marginBottom: '0.6rem',
         fontFamily: 'Georgia, serif', fontWeight: 700,
@@ -322,7 +322,7 @@ export default function Testimonials() {
       <style>{`
         @media (max-width: 900px) { .testi-grid { grid-template-columns: repeat(2,1fr) !important; gap: 1.25rem !important; } }
         @media (max-width: 560px) { .testi-grid { grid-template-columns: 1fr !important; } }
-        @media (max-width: 480px) { .testi-card { padding: 1.6rem 1.4rem !important; } .testi-quote { font-size: 0.84rem !important; } }
+        @media (max-width: 480px) { .testi-card { padding: 1.6rem 1.4rem !important; } .testi-quote { font-size: 0.84rem !important; } .testi-quote-mark { font-size: 2.5rem !important; } }
       `}</style>
     </section>
   )
