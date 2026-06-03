@@ -1,4 +1,5 @@
 import { ArrowRight, ChevronDown } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import { PRELOADER_END_S } from './Preloader'
 import StatNumber from './StatNumber'
 
@@ -18,6 +19,7 @@ const stats = [
 interface Props { loaded: boolean }
 
 export default function Hero({ loaded: _ }: Props) {
+  const navigate = useNavigate()
   return (
     <section
       id="top"
@@ -115,27 +117,15 @@ export default function Hero({ loaded: _ }: Props) {
         display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap',
         animation: anim(0.9, 0.65),
       }}>
-        <a
-          href="#contact"
-          onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-          className="btn btn-primary"
-        >
+        <button onClick={() => navigate('/contact')} className="btn btn-primary">
           Request Consultation <ArrowRight size={14} />
-        </a>
-        <a
-          href="#services"
-          onClick={(e) => { e.preventDefault(); document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) }}
-          className="btn btn-outline"
-        >
+        </button>
+        <button onClick={() => navigate('/services')} className="btn btn-outline">
           View Services
-        </a>
-        <a
-          href="#contact"
-          onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-          className="btn btn-ghost"
-        >
+        </button>
+        <button onClick={() => navigate('/contact')} className="btn btn-ghost">
           Get a Quote
-        </a>
+        </button>
       </div>
 
       {/* Stats bar */}
@@ -167,19 +157,18 @@ export default function Hero({ loaded: _ }: Props) {
       </div>
 
       {/* Scroll cue */}
-      <a
-        href="#about"
-        onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) }}
+      <button
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         style={{
           position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)',
           color: '#475569', display: 'flex', flexDirection: 'column',
-          alignItems: 'center', gap: '0.2rem', textDecoration: 'none',
+          alignItems: 'center', gap: '0.2rem', background: 'none', border: 'none', cursor: 'pointer',
           animation: anim(0.7, 1.1),
         }}
       >
         <span style={{ fontSize: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Scroll</span>
         <ChevronDown size={16} style={{ animation: 'bounce 2s ease-in-out infinite' }} />
-      </a>
+      </button>
 
       <style>{`
         @keyframes fadeUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }

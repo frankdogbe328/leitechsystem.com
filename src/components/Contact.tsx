@@ -5,9 +5,15 @@ import { FaFacebook, FaInstagram } from 'react-icons/fa'
 const contactItems = [
   {
     icon: <Phone size={18} color="#F59E0B" />,
-    label: 'Ghana (WhatsApp)',
-    value: '+233 508 096 108   |   +233 247 291 199',
+    label: 'Ghana · MTN (WhatsApp)',
+    value: '+233 508 096 108',
     href: 'tel:+233508096108',
+  },
+  {
+    icon: <Phone size={18} color="#10B981" />,
+    label: 'Ghana · Vodafone',
+    value: '+233 247 291 199',
+    href: 'tel:+233247291199',
   },
   {
     icon: <Phone size={18} color="#38BDF8" />,
@@ -50,10 +56,20 @@ const contactItems = [
 export default function Contact({ showHeader = true }: { showHeader?: boolean }) {
   const [sent, setSent] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const d = new FormData(e.currentTarget)
+    const text = encodeURIComponent(
+      `*New Enquiry — Leitech Website*\n\n` +
+      `Name: ${d.get('fullName')}\n` +
+      `Contact: ${d.get('contact')}\n` +
+      `Client Type: ${d.get('clientType')}\n` +
+      `Service: ${d.get('service')}\n` +
+      `Message: ${d.get('message')}`
+    )
+    window.open(`https://wa.me/233508096108?text=${text}`, '_blank')
     setSent(true)
-    setTimeout(() => setSent(false), 4000)
+    setTimeout(() => setSent(false), 5000)
   }
 
   return (
@@ -127,50 +143,44 @@ export default function Contact({ showHeader = true }: { showHeader?: boolean })
 
               <form onSubmit={handleSubmit}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }} className="f-row">
-                  {[
-                    { label: 'Full Name', placeholder: 'e.g. Kofi Mensah', type: 'text' },
-                    { label: 'Phone / Email', placeholder: '0XX XXX XXXX or email', type: 'text' },
-                  ].map((f) => (
-                    <div key={f.label}>
-                      <label style={{ display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#475569', marginBottom: '0.4rem' }}>{f.label}</label>
-                      <input required type={f.type} placeholder={f.placeholder} style={inputStyle} />
-                    </div>
-                  ))}
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#475569', marginBottom: '0.4rem' }}>Full Name</label>
+                    <input required name="fullName" type="text" placeholder="e.g. Kofi Mensah" style={inputStyle} />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#475569', marginBottom: '0.4rem' }}>Phone / Email</label>
+                    <input required name="contact" type="text" placeholder="0XX XXX XXXX or email" style={inputStyle} />
+                  </div>
                 </div>
 
-                {[
-                  {
-                    label: 'Client Type',
-                    type: 'select',
-                    options: ['Residential', 'Commercial Enterprise', 'Government / Institution', 'Industrial Facility'],
-                  },
-                  {
-                    label: 'Service Required',
-                    type: 'select',
-                    options: [
+                <div style={{ marginBottom: '1rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#475569', marginBottom: '0.4rem' }}>Client Type</label>
+                  <select required name="clientType" style={{ ...inputStyle, cursor: 'pointer' }}>
+                    <option value="">Select...</option>
+                    {['Residential', 'Commercial Enterprise', 'Government / Institution', 'Industrial Facility'].map((o) => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                </div>
+
+                <div style={{ marginBottom: '1rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#475569', marginBottom: '0.4rem' }}>Service Required</label>
+                  <select required name="service" style={{ ...inputStyle, cursor: 'pointer' }}>
+                    <option value="">Select...</option>
+                    {[
                       'Residential Solar', 'Commercial / Industrial Solar', 'Hybrid / Off-Grid Solar',
                       'Solar Battery Storage', 'CCTV Surveillance', 'Electric Fence',
                       'Access Control', 'Intercom Systems', 'Smart Home Automation',
                       'Communications Infrastructure', 'Multiple Services / Consultation',
-                    ],
-                  },
-                ].map((f) => (
-                  <div key={f.label} style={{ marginBottom: '1rem' }}>
-                    <label style={{ display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#475569', marginBottom: '0.4rem' }}>{f.label}</label>
-                    <select required style={{ ...inputStyle, cursor: 'pointer' }}>
-                      <option value="">Select...</option>
-                      {f.options.map((o) => <option key={o} value={o}>{o}</option>)}
-                    </select>
-                  </div>
-                ))}
+                    ].map((o) => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                </div>
 
                 <div style={{ marginBottom: '1rem' }}>
                   <label style={{ display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#475569', marginBottom: '0.4rem' }}>Message</label>
-                  <textarea required placeholder="Describe your project, location, and requirements..." style={{ ...inputStyle, minHeight: 100, resize: 'vertical' }} />
+                  <textarea required name="message" placeholder="Describe your project, location, and requirements..." style={{ ...inputStyle, minHeight: 100, resize: 'vertical' }} />
                 </div>
 
                 <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '1rem', fontSize: '0.72rem' }}>
-                  {sent ? <><Check size={16} /> Message Sent!</> : <><Send size={14} /> Send Message</>}
+                  {sent ? <><Check size={16} /> Opening WhatsApp…</> : <><Send size={14} /> Send via WhatsApp</>}
                 </button>
               </form>
             </div>
