@@ -5,13 +5,13 @@ import { FaFacebook, FaInstagram } from 'react-icons/fa'
 const contactItems = [
   {
     icon: <Phone size={18} color="#F59E0B" />,
-    label: 'Ghana · MTN (WhatsApp)',
+    label: 'Ghana · Phone',
     value: '+233 508 096 108',
     href: 'tel:+233508096108',
   },
   {
     icon: <Phone size={18} color="#10B981" />,
-    label: 'Ghana · Vodafone',
+    label: 'Ghana · Phone',
     value: '+233 247 291 199',
     href: 'tel:+233247291199',
   },
