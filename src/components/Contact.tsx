@@ -37,7 +37,7 @@ const contactItems = [
     icon: <FaFacebook size={18} color="#1877F2" />,
     label: 'Facebook',
     value: 'Leitech Systems Solution',
-    href: 'https://www.facebook.com/share/1BRZRemdQz/',
+    href: 'https://www.facebook.com/share/1KyRcVm24i/',
   },
   {
     icon: <FaInstagram size={18} color="#E1306C" />,
@@ -47,7 +47,7 @@ const contactItems = [
   },
 ]
 
-export default function Contact() {
+export default function Contact({ showHeader = true }: { showHeader?: boolean }) {
   const [sent, setSent] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -59,13 +59,15 @@ export default function Contact() {
   return (
     <section id="contact" className="section">
       <div className="container">
-        <div className="section-header rev">
-          <div>
-            <div className="eyebrow">Reach Us</div>
-            <h2 className="section-title">Get In <em>Touch</em></h2>
+        {showHeader && (
+          <div className="section-header rev">
+            <div>
+              <div className="eyebrow">Reach Us</div>
+              <h2 className="section-title">Get In <em>Touch</em></h2>
+            </div>
+            <p className="section-desc">Ready to power up, secure, or automate your property? Let's talk.</p>
           </div>
-          <p className="section-desc">Ready to power up, secure, or automate your property? Let's talk.</p>
-        </div>
+        )}
 
         <div style={{
           display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: '5rem',

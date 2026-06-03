@@ -4,7 +4,7 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
   {
     q: 'What areas do you serve?',
-    a: 'We are based in Burma Camp, Accra and serve clients across Ghana and West Africa — residential, commercial, and government projects alike.',
+    a: 'We are based at 79 Fertilizer Road, Teshie Nungua Estate, Accra and serve clients across Ghana and West Africa — residential, commercial, and government projects alike.',
   },
   {
     q: 'How long does a solar installation take?',

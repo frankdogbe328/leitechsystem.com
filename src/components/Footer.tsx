@@ -12,7 +12,7 @@ const contact = [
   { label: 'leitech_systems@outlook.com', href: 'mailto:leitech_systems@outlook.com' },
   { label: '79 Fertilizer Road, Teshie Nungua Estate, Accra', href: undefined },
   { label: '@leitech_systems_s (TikTok)', href: 'https://www.tiktok.com/@leitech_systems_s' },
-  { label: 'Leitech Systems Solution (Facebook)', href: 'https://www.facebook.com/share/1BRZRemdQz/' },
+  { label: 'Leitech Systems Solution (Facebook)', href: 'https://www.facebook.com/share/1KyRcVm24i/' },
   { label: '@leitech_systems_s (Instagram)', href: 'https://www.instagram.com/leitechsystemssolution' },
 ]
 
@@ -34,16 +34,12 @@ export default function Footer() {
               <img
                 src="/logo6.png"
                 alt="Leitech Systems Solution"
-                style={{ height: 52, width: 'auto', maxWidth: 180, objectFit: 'contain', display: 'block' }}
+                style={{ height: 72, width: 'auto', maxWidth: 220, objectFit: 'contain', display: 'block' }}
               />
             </div>
             <div style={{ fontSize: '0.56rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#F59E0B', marginBottom: '1rem' }}>
               Inspire · Innovate · Secure
             </div>
-            <p style={{ fontSize: '0.8rem', color: '#475569', lineHeight: 1.75, maxWidth: 300 }}>
-              Ghana-based engineering and technology company delivering solar, security,
-              and smart infrastructure across Ghana and West Africa.
-            </p>
           </div>
 
           {/* Services */}
@@ -106,7 +102,7 @@ export default function Footer() {
           <div className="footer-social" style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
             {[
               { icon: <FaTiktok size={16} />, label: 'TikTok', href: 'https://www.tiktok.com/@leitech_systems_s' },
-              { icon: <FaFacebook size={16} color="#1877F2" />, label: 'Facebook', href: 'https://www.facebook.com/share/1BRZRemdQz/' },
+              { icon: <FaFacebook size={16} color="#1877F2" />, label: 'Facebook', href: 'https://www.facebook.com/share/1KyRcVm24i/' },
               { icon: <FaInstagram size={16} color="#E1306C" />, label: 'Instagram', href: 'https://www.instagram.com/leitechsystemssolution' },
             ].map((s) => (
               <a key={s.label} href={s.href}

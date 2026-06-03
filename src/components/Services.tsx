@@ -16,7 +16,7 @@ const categories: Category[] = [
     ],
   },
   {
-    icon: <Lock size={28} />, label: 'Security Infrastructure', color: '#0EA5E9', bg: '/images/si.jpeg',
+    icon: <Lock size={28} />, label: 'Security Infrastructure', color: '#0EA5E9', bg: '/images/sh.jpeg',
     services: [
       { title: 'CCTV Surveillance', desc: 'Full-perimeter HD camera systems with night-vision and remote monitoring.' },
       { title: 'Electric Fence', desc: 'High-performance fencing for maximum perimeter security on any property.' },
@@ -25,7 +25,7 @@ const categories: Category[] = [
     ],
   },
   {
-    icon: <Cpu size={28} />, label: 'Smart Infrastructure', color: '#10B981', bg: '/images/ci.jpeg',
+    icon: <Cpu size={28} />, label: 'Smart Infrastructure', color: '#10B981', bg: '/images/si.jpeg',
     services: [
       { title: 'Smart Home Automation', desc: 'Control lighting, appliances, security, and climate from one interface.' },
       { title: 'Remote Energy Monitoring', desc: 'Real-time monitoring of your solar and energy systems from anywhere.' },
@@ -33,7 +33,7 @@ const categories: Category[] = [
     ],
   },
   {
-    icon: <Radio size={28} />, label: 'Communications Infrastructure', color: '#A78BFA', bg: '/images/sh.jpeg',
+    icon: <Radio size={28} />, label: 'Communications Infrastructure', color: '#A78BFA', bg: '/images/ci.jpeg',
     services: [
       { title: 'HF/VHF Radio Installation', desc: 'Professional radio systems for reliable comms in any environment.' },
       { title: 'Telecommunications Infrastructure', desc: 'Full telecom support — cabling, networking, and signal systems.' },

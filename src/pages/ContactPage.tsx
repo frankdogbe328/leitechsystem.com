@@ -29,7 +29,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Contact />
+      <Contact showHeader={false} />
     </div>
   )
 }

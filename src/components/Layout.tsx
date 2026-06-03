@@ -49,13 +49,15 @@ export default function Layout({ loaded }: Props) {
     return () => clearTimeout(t)
   }, [location.pathname, loaded])
 
+  const hideFooter = location.pathname === '/contact'
+
   return (
     <>
       <Nav loaded={loaded} />
       <main>
         <Outlet />
       </main>
-      <Footer />
+      {!hideFooter && <Footer />}
       <WhatsAppBtn />
       <FloatingCTA />
     </>
