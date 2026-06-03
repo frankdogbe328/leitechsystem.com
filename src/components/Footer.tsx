@@ -1,10 +1,5 @@
 import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa'
 
-const services = [
-  'Solar Power Systems', 'CCTV Surveillance', 'Electric Fence',
-  'Access Control', 'Smart Home', 'Communications',
-]
-
 const contact = [
   { label: '+233 508 096 108 (Ghana)', href: 'tel:+233508096108' },
   { label: '+233 247 291 199 (Ghana)', href: 'tel:+233247291199' },
@@ -25,7 +20,7 @@ export default function Footer() {
       <div className="footer-inner" style={{ maxWidth: 1280, margin: '0 auto', padding: '4rem 3rem 2rem' }}>
         {/* Top grid */}
         <div style={{
-          display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr',
+          display: 'grid', gridTemplateColumns: '1.6fr 1fr',
           gap: '3rem', marginBottom: '3rem',
         }} className="footer-top">
           {/* Brand */}
@@ -40,23 +35,6 @@ export default function Footer() {
             <div style={{ fontSize: '0.56rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#F59E0B', marginBottom: '1rem' }}>
               Inspire · Innovate · Secure
             </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h5 style={{ fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.18em', color: '#F59E0B', marginBottom: '1.2rem' }}>Services</h5>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              {services.map((s) => (
-                <li key={s}>
-                  <a href="#services" style={{
-                    fontSize: '0.78rem', color: '#475569', textDecoration: 'none', transition: 'color 0.2s',
-                  }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#F1F5F9')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#475569')}
-                  >{s}</a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Contact */}
@@ -118,10 +96,9 @@ export default function Footer() {
       </div>
 
       <style>{`
-        @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; } }
         @media (max-width: 768px) {
           .footer-inner { padding: 3rem 1.25rem 1.5rem !important; }
-          .footer-top { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+          .footer-top { grid-template-columns: 1fr !important; gap: 2rem !important; }
           .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 0.75rem !important; }
         }
         @media (max-width: 480px) {
