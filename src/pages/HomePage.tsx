@@ -16,19 +16,19 @@ const serviceCards: SvcItem[] = [
     path: '/services',
   },
   {
-    icon: <Lock size={28} />, color: '#0EA5E9', bg: '/images/si.jpeg',
+    icon: <Lock size={28} />, color: '#0EA5E9', bg: '/images/sh.jpeg',
     title: 'Security Infrastructure',
     desc: 'CCTV, electric fencing, access control and intercom systems for any property type.',
     path: '/services',
   },
   {
-    icon: <Cpu size={28} />, color: '#10B981', bg: '/images/ci.jpeg',
+    icon: <Cpu size={28} />, color: '#10B981', bg: '/images/si.jpeg',
     title: 'Smart Infrastructure',
     desc: 'Smart home automation, remote energy monitoring and integrated security platforms.',
     path: '/services',
   },
   {
-    icon: <Radio size={28} />, color: '#A78BFA', bg: '/images/sh.jpeg',
+    icon: <Radio size={28} />, color: '#A78BFA', bg: '/images/ci.jpeg',
     title: 'Communications',
     desc: 'HF/VHF radio, telecom cabling, network and signal system installations.',
     path: '/services',
