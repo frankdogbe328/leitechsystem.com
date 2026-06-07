@@ -1,0 +1,212 @@
+/* =========================================================
+   LEITECH — Global Design System
+   ========================================================= */
+
+:root {
+  --bg:         #050D1A;
+  --bg2:        #071422;
+  --surface:    #0C1A2E;
+  --card:       #0F1E35;
+  --card-hov:   #142642;
+  --amber:      #F59E0B;
+  --amber2:     #FCD34D;
+  --blue:       #0EA5E9;
+  --blue2:      #38BDF8;
+  --green:      #10B981;
+  --white:      #F1F5F9;
+  --muted:      #94A3B8;
+  --dim:        #475569;
+  --border:     rgba(14,165,233,0.1);
+  --border2:    rgba(14,165,233,0.22);
+  --gborder:    rgba(245,158,11,0.12);
+  --gborder2:   rgba(245,158,11,0.28);
+  --grad:       linear-gradient(135deg, #F59E0B, #0EA5E9);
+  --grad-text:  linear-gradient(90deg, #F59E0B 0%, #38BDF8 100%);
+}
+
+/* ── Light mode overrides ── */
+[data-theme="light"] {
+  --bg:      #F0F4F8;
+  --bg2:     #E8EEF5;
+  --surface: #DDE6F0;
+  --card:    #FFFFFF;
+  --card-hov:#F0F6FF;
+  --white:   #0F172A;
+  --muted:   #475569;
+  --dim:     #64748B;
+  --border:  rgba(14,165,233,0.2);
+  --border2: rgba(14,165,233,0.4);
+}
+
+[data-theme="light"] body { background: #F0F4F8; color: #0F172A; }
+[data-theme="light"] .section--alt { background: #E8EEF5; }
+[data-theme="light"] h2.section-title { color: #0F172A; }
+[data-theme="light"] .section-desc { color: #475569; }
+[data-theme="light"] ::-webkit-scrollbar-track { background: #F0F4F8; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 9000;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.35;
+}
+
+#root { min-height: 100vh; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ── Scroll reveal ── */
+.rev { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.rev.on { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; }
+.d4 { transition-delay: 0.32s; }
+.d5 { transition-delay: 0.4s; }
+
+/* ── Gradient text ── */
+.grad-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Layout ── */
+.section { padding: 7rem 0; position: relative; }
+.section--alt { background: var(--bg2); }
+.container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 3rem; }
+
+.section-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap; margin-bottom: 4rem;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.2em; color: var(--amber); margin-bottom: 0.75rem;
+}
+.eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--amber); border-radius: 2px; }
+
+h2.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800; line-height: 1.05; color: var(--white);
+}
+h2.section-title em {
+  font-style: normal;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-desc { font-size: 0.92rem; color: var(--muted); max-width: 340px; line-height: 1.8; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; padding: 0.85rem 2rem;
+  border: none; cursor: pointer; transition: all 0.25s ease; text-decoration: none;
+}
+.btn-primary { background: linear-gradient(135deg, #F59E0B, #D97706); color: #050D1A; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.35); }
+.btn-outline { background: transparent; border: 1.5px solid var(--border2); color: var(--blue2); }
+.btn-outline:hover { border-color: var(--blue); background: rgba(14,165,233,0.06); transform: translateY(-2px); }
+.btn-ghost { background: transparent; border: 1.5px solid var(--gborder2); color: var(--amber); }
+.btn-ghost:hover { border-color: var(--amber); background: rgba(245,158,11,0.06); }
+
+/* ── Form inputs focus ── */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(245,158,11,0.45) !important;
+  box-shadow: 0 0 0 2px rgba(245,158,11,0.08);
+}
+input::placeholder, textarea::placeholder { color: #475569; }
+select option { background: #0F1E35; color: #F1F5F9; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(245,158,11,0.3); }
+
+/* ── Page entrance (fires on every route mount) ── */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+.page-enter {
+  animation: pageIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Page hero banner (inner section header for sub-pages) ── */
+.page-hero {
+  padding: 10rem 0 6rem;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(14,165,233,0.1);
+  display: flex;
+  align-items: center;
+}
+.page-hero .container { position: relative; z-index: 1; width: 100%; }
+
+/* ── Responsive breakpoints ── */
+@media (max-width: 1024px) {
+  .container { padding: 0 2rem; }
+  .section { padding: 5.5rem 0; }
+  .page-hero { padding: 9rem 0 5rem; min-height: 420px; }
+  .section-header { margin-bottom: 3rem; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.25rem; }
+  .section { padding: 4.5rem 0; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 2.5rem; }
+  .section-desc { max-width: 100%; }
+  .page-hero { padding: 8rem 0 4rem; min-height: 380px; }
+
+  /* Buttons — ensure 44px min touch target */
+  .btn { min-height: 44px; padding: 0.75rem 1.5rem; font-size: 0.7rem; }
+
+  /* Footer inner padding */
+  footer > div { padding: 3rem 1.25rem 1.5rem !important; }
+
+  /* Hero stats bar — stack on mobile */
+  .hero-stats-bar { flex-direction: column !important; }
+  .hero-stats-bar > div { border-right: none !important; border-bottom: 1px solid rgba(14,165,233,0.1); }
+  .hero-stats-bar > div:last-child { border-bottom: none; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .section { padding: 3.5rem 0; }
+  .page-hero { padding: 7rem 0 2.5rem; min-height: 320px; }
+
+  /* section titles — tighten on small phones */
+  h2.section-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+
+  /* CTA button groups — stack and go full-width on phones */
+  .cta-group .btn { width: 100%; justify-content: center; }
+
+  /* Cards — reduce padding so content doesn't feel crushed */
+  .why-card > div,
+  .testi-card,
+  .hs-card > div { padding: 1.6rem 1.4rem !important; }
+}
